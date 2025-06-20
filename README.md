@@ -1,109 +1,140 @@
 <h1 align="center">📰 BẢN TIN MONA</h1>
-<p align="center"><em>Chuyên mục tin tức chính thức của <strong>Mona Media</strong> – cập nhật xu hướng, công nghệ & văn hóa sáng tạo.</em></p>
+<p align="center"><em>Chuyên mục chia sẻ kiến thức, công nghệ, văn hóa nội bộ và hành trình phát triển của đội ngũ Mona Media.</em></p>
 
 <p align="center">
-  <a href="https://mona.media/ban-tin-mona/">🌐 Truy cập chuyên mục tại Mona Media</a>
+  <a href="https://mona.media/ban-tin-mona/">🔗 Xem bản tin chính thức tại Mona Media</a>
 </p>
 
 ---
 
-## 📌 Giới Thiệu Dự Án
+## 🎯 MỤC ĐÍCH DỰ ÁN
 
-**Bản Tin Mona** là chuyên mục tin tức trực thuộc [Mona Media](https://mona.media), nơi tổng hợp:
+**Bản Tin Mona** được xây dựng với mong muốn tạo nên một “không gian mở” – nơi mọi thành viên, đối tác, khách hàng hoặc bất kỳ ai quan tâm đến công nghệ đều có thể tìm thấy:
 
-- 🌐 Tin tức công nghệ: AI, Web3, Cloud, UI/UX
-- 💻 Hướng dẫn lập trình (React, Laravel, Next.js, v.v.)
-- 🚀 Case study từ các dự án Mona đã triển khai
-- 👥 Góc nhìn kỹ thuật & văn hoá nội bộ
-
-Trang này được xây dựng bằng **Next.js App Router**, kết hợp Tailwind CSS và triển khai frontend dựa trên thiết kế hiện đại, responsive.
+- 🌐 Những góc nhìn thực tế từ môi trường phát triển phần mềm chuyên nghiệp.
+- 💡 Kiến thức cập nhật, phân tích chuyên sâu về xu hướng thiết kế, công nghệ mới (AI, Web3, UI/UX, Cloud...).
+- 🎉 Chuyện nghề, chuyện người – văn hóa doanh nghiệp & hoạt động nội bộ Mona.
 
 ---
 
-## 🎯 Mục Tiêu Của Bản Tin
+## 📚 NỘI DUNG CHÍNH
 
-| 🎯 Mục Tiêu | 💡 Nội Dung |
-|------------|------------|
-| 🔄 Cập nhật xu hướng | Công nghệ, thiết kế, chuyển đổi số |
-| 📚 Kiến thức kỹ thuật | Code sample, hướng dẫn chuyên sâu |
-| 📈 Dự án nổi bật | Showcase dự án thực tế của Mona |
-| 🧑‍🤝‍🧑 Văn hóa công ty | Sự kiện nội bộ, team building, nhân sự |
+| 📌 Chuyên Mục              | 📋 Mô Tả                                                                 |
+|---------------------------|-------------------------------------------------------------------------|
+| 🔍 Xu Hướng & Công Nghệ    | Cập nhật về thiết kế giao diện, chuyển đổi số, AI, bảo mật, DevOps, Web3 |
+| 🧑‍💻 Góc Chuyên Môn           | Chia sẻ về React, Next.js, Laravel, quản lý hệ thống, coding guideline    |
+| 📈 Case Study & Dự Án       | Phân tích các dự án thực tế do Mona triển khai, phản hồi từ khách hàng    |
+| 🏢 Văn Hóa & Con Người Mona | Câu chuyện nội bộ, sinh nhật nhân viên, sự kiện team, đào tạo nội bộ     |
 
 ---
 
-## 🧱 Tech Stack & Công Cụ Sử Dụng
+## 📰 MỘT SỐ BÀI VIẾT TIÊU BIỂU
 
-- 🧑‍💻 **Next.js** + **App Router**
+- 💡 “Tôi không biết ăn nói trước máy quay...”  
+  → CEO chia sẻ về hành trình làm E-learning nội bộ – từ con người đến quy trình.
+  
+- ⚙️ **AI giúp tăng 300% hiệu suất cho team Marketing**  
+  → Triết Phan chia sẻ cách AI hỗ trợ content + chiến lược đa nền.
+
+- 📈 **SEO Happy Station: Lên top 3 sau 2 tháng**  
+  → Kỹ thuật liên kết nội bộ & tối ưu landing page chuẩn Mona.
+
+- 👥 **Sinh nhật & văn hóa Mona – Không chỉ là công việc**  
+  → Một năm gắn bó cùng team Account, niềm vui & sự trưởng thành.
+
+---
+
+## 🧱 GIAO DIỆN WEBSITE & DỰ ÁN NÀY
+
+> Giao diện hiện đại, hiện thực hoá bằng công nghệ Frontend tối ưu:
+
+### 🧑‍💻 Tech Stack:
+- ✅ **Next.js App Router**
 - 🎨 **Tailwind CSS**
-- 📦 **TypeScript**
-- 🚀 Deploy bằng [Vercel](https://vercel.com/)
-- 🖼️ `next/image`, `next/font` tối ưu hiệu suất
+- 💡 TypeScript, PostCSS
+- 🚀 Ảnh động, hiệu ứng tương tác nhẹ (hover, scale, transition)
+- 📱 Responsive Mobile – Tablet – Desktop
+- 🖼 `next/image` – tối ưu ảnh
+- 🔤 `next/font` – dùng font tải nhanh (Geist/Inter)
 
 ---
 
-## 🚀 Getting Started
+## 🧪 HƯỚNG DẪN CHẠY DỰ ÁN LOCAL
 
-Clone và khởi chạy dự án:
-
+# 1. Clone project
 git clone https://github.com/KsorRmahPhiDen1594/mona_fe.git
 cd mona_fe
 
-npm install  # hoặc yarn / pnpm / bun
-npm run dev  # hoặc yarn dev / pnpm dev / bun dev
+# 2. Cài đặt dependencies
+npm install
+
+# 3. Chạy local dev server
+npm run dev
 🔗 Truy cập: http://localhost:3000
 
-Mọi chỉnh sửa nên thực hiện trong src/app/page.tsx. Dự án sẽ auto-refresh sau khi bạn lưu file.
-
-📁 Cấu trúc dự án (cơ bản)
+🗂️ CẤU TRÚC DỰ ÁN
 bash
 Sao chép
 Chỉnh sửa
-├── app/                # App router structure
-│   ├── page.tsx        # Trang chính
-│   └── layout.tsx      # Layout toàn cục
-├── public/             # Ảnh, favicon, v.v.
-├── styles/             # Tailwind CSS
-├── components/         # Các component UI
+├── app/               # Cấu trúc App Router của Next.js
+│   ├── page.tsx       # Trang chính
+│   └── layout.tsx     # Layout tổng
+├── components/        # Các phần tử UI: Hero, Feed, Footer,...
+├── public/            # Hình ảnh, favicon,...
+├── styles/            # Cấu hình Tailwind, Global CSS
 ├── README.md
-📦 Thêm Về Next.js
-🔗 Next.js Documentation
+├── package.json
+└── ...
+☁️ TRIỂN KHAI TRỰC TUYẾN
+Dự án có thể triển khai dễ dàng trên Vercel hoặc Netlify.
 
-🎓 Learn Next.js
+Deploy trên Vercel:
+bash
+Sao chép
+Chỉnh sửa
+npm run build
+npx vercel
+🏢 GIỚI THIỆU MONA MEDIA
+Mona Media là công ty công nghệ sáng tạo tại Việt Nam với hơn 10 năm kinh nghiệm, hoạt động đa lĩnh vực:
 
-🛠️ Next.js GitHub Repo
+Thiết kế Website cao cấp, chuẩn UI/UX, tối ưu SEO
 
-☁️ Deploy dễ dàng với Vercel
-Dự án này được xây dựng hoàn hảo để triển khai trên nền tảng Vercel.
-Xem tài liệu deploy tại:
-📚 Next.js Deployment Docs
+Lập trình hệ thống: ERP, CRM, Quản trị nội bộ, App mobile
 
-🏢 Về Mona Media
-✨ Công ty công nghệ tại Việt Nam với hơn 10 năm kinh nghiệm:
+Chuyển đổi số toàn diện cho doanh nghiệp SME đến tập đoàn
 
-🌐 Thiết kế website chuyên nghiệp
+Triển khai Digital Marketing: SEO, Ads, Branding
 
-💻 Lập trình phần mềm, app, hệ thống ERP/CRM
+Dịch vụ Hosting, VPS, bảo trì & bảo mật hệ thống
 
-📈 Digital Marketing, SEO tổng thể
+🌍 Một số con số nổi bật:
+👨‍💻 80+ nhân sự từ kỹ thuật, thiết kế, quản lý dự án
 
-🔐 Bảo mật – Hosting – Hạ tầng
+🧩 1000+ dự án hoàn thành trong và ngoài nước
 
-🧠 Sứ mệnh: Đồng hành cùng doanh nghiệp trong hành trình chuyển đổi số hiệu quả & bền vững.
+🏆 Đối tác công nghệ cho nhiều thương hiệu lớn
 
-📬 Liên hệ & Theo dõi
+📍 Trụ sở: Đà Nẵng – Hồ Chí Minh – Hà Nội
+
+📬 LIÊN HỆ & KẾT NỐI
 txt
 Sao chép
 Chỉnh sửa
-🌐 Website: https://mona.media
-📧 Email:   phiden1594@gmail.com
-📞 Phone:   088.9999.422
-📍 Địa chỉ: 33 Xô Viết Nghệ Tĩnh, Đà Nẵng
-📢 Cảm ơn bạn đã theo dõi dự án Bản Tin Mona!
-Nếu bạn thấy hữu ích, hãy ⭐ repo này hoặc góp ý thêm ❤️
+🌐 Website:     https://mona.media
+📧 Email:       phiden1594@gmail.com
+📞 Hotline:     088.9999.422
+📍 Văn phòng:   33 Xô Viết Nghệ Tĩnh, Q. Hải Châu, Đà Nẵng
+🧑 GitHub:      https://github.com/KsorRmahPhiDen1594
+📌 Hãy theo dõi Bản Tin Mona mỗi tuần để cập nhật kiến thức hữu ích, khám phá góc nhìn mới & truyền cảm hứng sáng tạo từ đội ngũ Mona Media!
+
+yaml
+Sao chép
+Chỉnh sửa
 
 ---
 
-## 🎁 Gợi ý tiếp theo
+## ✅ Gợi ý tiếp theo:
 
-- 🖼️ Muốn chèn ảnh demo UI? → Tạo folder `public/images/` rồi dùng:
-  ![Demo](./public/images/demo-ui.png)
+- Nếu bạn có ảnh demo → thêm vào thư mục `public/images` và chèn vào README với:
+
+  ![Giao diện trang chủ](./public/images/demo.png)
