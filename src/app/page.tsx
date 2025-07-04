@@ -1,10 +1,9 @@
 import Image from "next/image";
-
-import DashboardPage from "./dashboard/page";
+import { NavigationMenuDemo } from "./header/page";
 
 export default function Home() {
   return (
-    <DashboardPage/>
+    <NavigationMenuDemo/>
   );
 }
 
