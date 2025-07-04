@@ -13,19 +13,31 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { HiMenu, HiX } from "react-icons/hi"
-import { menuItems } from "@/app/header/utils/menuItems" // Import từ utils
+import { menuItems } from "@/app/header/utils/menuItems"
+import { motion } from "framer-motion" // Import Framer Motion
 
 export function NavigationMenuDemo() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+
+  // Các biến thể animation
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
 
   return (
     <>
       <header className="w-full bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between h-14 lg:h-16">
-            
-            {/* Logo Section */}
-            <div className="flex-shrink-0 w-auto">
+            {/* Logo Section with Animation */}
+            <motion.div
+              className="flex-shrink-0 w-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
               <Link href="/" className="block">
                 <Image
                   src="/assets/Logo-Mona.png"
@@ -36,28 +48,42 @@ export function NavigationMenuDemo() {
                   priority
                 />
               </Link>
-            </div>
+            </motion.div>
 
-            {/* Desktop Navigation Menu */}
-            <NavigationMenu className="hidden lg:flex items-center flex-1 justify-center mx-8">
-              <NavigationMenuList className="flex space-x-1 xl:space-x-2">
-                {menuItems.map((item) => (
-                  <NavigationMenuItem key={item.title}>
-                    <NavigationMenuLink
-                      asChild
-                      className={`${navigationMenuTriggerStyle()} ${item.color} flex items-center gap-1`}
-                    >
-                      <Link href={item.href}>
-                        {item.icon} {item.title}
-                      </Link>
-                    </NavigationMenuLink>
-                  </NavigationMenuItem>
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
+            {/* Desktop Navigation Menu with Animation */}
+            <motion.div
+              className="hidden lg:flex items-center flex-1 justify-center mx-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
+              <NavigationMenu>
+                <NavigationMenuList className="flex space-x-1 xl:space-x-2">
+                  {menuItems.map((item) => (
+                    <NavigationMenuItem key={item.title}>
+                      <NavigationMenuLink
+                        asChild
+                        className={`${navigationMenuTriggerStyle()} ${item.color} flex items-center gap-1`}
+                      >
+                        <Link href={item.href}>
+                          {item.icon} {item.title}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </motion.div>
 
-            {/* Contact Images Section - Hidden on Mobile, Visible on Desktop */}
-            <div className="hidden lg:flex flex-shrink-0 items-center relative">
+            {/* Contact Images Section with Animation - Hidden on Mobile, Visible on Desktop */}
+            <motion.div
+              className="hidden lg:flex flex-shrink-0 items-center relative"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
               <div className="relative flex items-center">
                 {/* Mask Group - Background Image */}
                 <Link href="/" className="block relative z-10">
@@ -84,9 +110,9 @@ export function NavigationMenuDemo() {
                   />
                 </Link>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Mobile Menu Button - React Icons */}
+            {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <button
                 type="button"
@@ -104,7 +130,6 @@ export function NavigationMenuDemo() {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
-          {/* Background Overlay */}
           <button
             type="button"
             className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
@@ -119,12 +144,9 @@ export function NavigationMenuDemo() {
             style={{ cursor: "pointer" }}
           />
           
-          {/* Slide Menu from Left */}
           <div className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}>
-            
-            {/* Menu Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
               <Image
                 src="/assets/Logo-Mona.png"
@@ -142,7 +164,6 @@ export function NavigationMenuDemo() {
               </button>
             </div>
 
-            {/* Menu Items */}
             <div className="py-4">
               {menuItems.map((item, index) => (
                 <Link
