@@ -8,6 +8,19 @@ const nextConfig = {
     resendKey: process.env.RESEND_KEY,
     IPINFO_TOKEN: process.env.IPINFO_TOKEN,
   },
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
+  },
+  webpack: (config: any, { isServer }: { isServer: boolean }) => {
+    // Fix for mini-css-extract-plugin error
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      };
+    }
+    return config;
+  },
   images: {
     remotePatterns: [
       {
@@ -31,6 +44,12 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "res.cloudinary.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "mona.media",
         port: "",
         pathname: "/**",
       },

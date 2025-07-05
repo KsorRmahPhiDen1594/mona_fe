@@ -41,7 +41,7 @@ const Header = ({ className }: { className?: string }) => {
                       item.dropdownType === "services" ? (
                         <>
                           <NavigationMenuTrigger
-                            className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
+                            className={`text-[16px] after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
                             style={{ '--tw-after-content': 'none' } as React.CSSProperties}
                           >
                             {item.trigger}
@@ -51,7 +51,7 @@ const Header = ({ className }: { className?: string }) => {
                       ) : (
                         <>
                           <NavigationMenuTrigger
-                            className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
+                            className={` text-[16px] after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
                             style={{ '--tw-after-content': 'none' } as React.CSSProperties}
                           >
                             {item.trigger}
@@ -72,8 +72,6 @@ const Header = ({ className }: { className?: string }) => {
           <HostlineSection />
         </div>
       </div>
-
-
     </header>
   );
 };
