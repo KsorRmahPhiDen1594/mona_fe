@@ -49,7 +49,6 @@ const SearchDropdown = ({ isOpen, onToggle }: SearchDropdownProps) => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="flex-1 text-sm outline-none border-none bg-transparent"
-                autoFocus
               />
             </div>
           </div>
@@ -59,7 +58,8 @@ const SearchDropdown = ({ isOpen, onToggle }: SearchDropdownProps) => {
             <div className="max-h-48 overflow-y-auto">
               {filteredSuggestions.map((suggestion, index) => (
                 <button
-                  key={index}
+                  type="button"
+                  key={suggestion}
                   className="w-full text-left px-3 py-2 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 text-sm"
                   onClick={() => {
                     setSearchQuery(suggestion);

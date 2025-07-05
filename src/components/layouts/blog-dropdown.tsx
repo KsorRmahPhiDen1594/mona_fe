@@ -14,8 +14,8 @@ interface BlogDropdownProps {
 const BlogDropdown = ({ items, hoverColor }: BlogDropdownProps) => (
   <NavigationMenuContent className="animate-in slide-in-from-top-2 duration-300 min-w-[220px] w-[220px] p-0">
     <ul className="flex flex-col gap-1 p-2">
-      {items.map((item, index) => (
-        <li key={index}>
+      {items.map((item) => (
+        <li key={item.href}>
           <NavigationMenuLink asChild>
             <Link
               href={item.href}

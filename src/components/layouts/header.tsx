@@ -33,35 +33,43 @@ const Header = ({ className }: { className?: string }) => {
 
             <NavigationMenu viewport={false}>
               <NavigationMenuList>
-                {navigationConfig.map((item, index) => (
-                  <NavigationMenuItem key={index}>
-                    {item.type === "link" ? (
-                      <NavLink href={item.href!} label={item.label!} hoverColor={item.hoverColor} />
-                    ) : item.type === "dropdown" ? (
-                      item.dropdownType === "services" ? (
-                        <>
-                          <NavigationMenuTrigger
-                            className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
-                            style={{ '--tw-after-content': 'none' } as React.CSSProperties}
-                          >
-                            {item.trigger}
-                          </NavigationMenuTrigger>
-                          <ServicesDropdown />
-                        </>
-                      ) : (
-                        <>
-                          <NavigationMenuTrigger
-                            className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
-                            style={{ '--tw-after-content': 'none' } as React.CSSProperties}
-                          >
-                            {item.trigger}
-                          </NavigationMenuTrigger>
-                          <BlogDropdown items={item.items!} hoverColor={item.hoverColor} />
-                        </>
-                      )
-                    ) : null}
-                  </NavigationMenuItem>
-                ))}
+                {navigationConfig.map((item) => {
+                  // Use a unique key, fallback to JSON.stringify if necessary
+                  const key = item.label || item.href || JSON.stringify(item);
+                  return (
+                    <NavigationMenuItem key={key}>
+                      {item.type === "link" ? (
+                        item.href && item.label ? (
+                          <NavLink href={item.href} label={item.label} hoverColor={item.hoverColor} />
+                        ) : null
+                      ) : item.type === "dropdown" ? (
+                        item.dropdownType === "services" ? (
+                          <>
+                            <NavigationMenuTrigger
+                              className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
+                              style={{ '--tw-after-content': 'none' } as React.CSSProperties}
+                            >
+                              {item.trigger}
+                            </NavigationMenuTrigger>
+                            <ServicesDropdown />
+                          </>
+                        ) : (
+                          <>
+                            <NavigationMenuTrigger
+                              className={`after:hidden [&>svg]:hidden [&>svg]:!hidden ${item.hoverColor}`}
+                              style={{ '--tw-after-content': 'none' } as React.CSSProperties}
+                            >
+                              {item.trigger}
+                            </NavigationMenuTrigger>
+                            {item.items ? (
+                              <BlogDropdown items={item.items} hoverColor={item.hoverColor} />
+                            ) : null}
+                          </>
+                        )
+                      ) : null}
+                    </NavigationMenuItem>
+                  );
+                })}
               </NavigationMenuList>
             </NavigationMenu>
             {/* Divider */}
