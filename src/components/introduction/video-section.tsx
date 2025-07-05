@@ -22,7 +22,7 @@ export default function VideoSection() {
             </div>
             
             {/* Mona journey person left - bottom left corner */}
-            <div className="absolute bottom-10 left-30 z-20">
+            <div className="absolute bottom-0 left-30 z-20">
                 <img
                     src="/assets/mona-journey-person-left.png"
                     alt="Mona Journey Person Left"
@@ -31,7 +31,7 @@ export default function VideoSection() {
             </div>
             
             {/* Mona journey person right - bottom right corner */}
-            <div className="absolute bottom-10 right-30 z-20">
+            <div className="absolute bottom-0 right-30 z-20">
                 <img
                     src="/assets/mona-journey-person-right.png"
                     alt="Mona Journey Person Right"
