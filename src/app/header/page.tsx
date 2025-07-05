@@ -1,0 +1,188 @@
+"use client"
+
+import * as React from "react"
+import Link from "next/link"
+import Image from "next/image"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu"
+import { HiMenu, HiX } from "react-icons/hi"
+import { menuItems } from "@/app/header/utils/menuItems"
+import { motion } from "framer-motion" // Import Framer Motion
+
+export function NavigationMenuDemo() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+
+  // Các biến thể animation
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  }
+
+  return (
+    <>
+      <header className="w-full bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex items-center justify-between h-14 lg:h-16">
+            {/* Logo Section with Animation */}
+            <motion.div
+              className="flex-shrink-0 w-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
+              <Link href="/" className="block">
+                <Image
+                  src="/assets/Logo-Mona.png"
+                  alt="MONA.Media logo"
+                  width={200}
+                  height={32}
+                  className="h-6 lg:h-8 w-auto dark:hidden"
+                  priority
+                />
+              </Link>
+            </motion.div>
+
+            {/* Desktop Navigation Menu with Animation */}
+            <motion.div
+              className="hidden lg:flex items-center flex-1 justify-center mx-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
+              <NavigationMenu>
+                <NavigationMenuList className="flex space-x-1 xl:space-x-2">
+                  {menuItems.map((item) => (
+                    <NavigationMenuItem key={item.title}>
+                      <NavigationMenuLink
+                        asChild
+                        className={`${navigationMenuTriggerStyle()} ${item.color} flex items-center gap-1`}
+                      >
+                        <Link href={item.href}>
+                          {item.icon} {item.title}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
+            </motion.div>
+
+            {/* Contact Images Section with Animation - Hidden on Mobile, Visible on Desktop */}
+            <motion.div
+              className="hidden lg:flex flex-shrink-0 items-center relative"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={itemVariants}
+            >
+              <div className="relative flex items-center">
+                {/* Mask Group - Background Image */}
+                <Link href="/" className="block relative z-10">
+                  <Image
+                    src="/assets/Mask-Group.png"
+                    alt="Mask Group"
+                    width={100}
+                    height={32}
+                    className="h-8 lg:h-9 w-auto dark:hidden"
+                  />
+                </Link>
+                
+                {/* Hotline Panda - Positioned below header */}
+                <Link
+                  href="/"
+                  className="block absolute -right-4 lg:-right-12 top-6 lg:top-1 z-20 transition-all duration-300 hover:scale-110 hover:-translate-x-1 lg:hover:-translate-x-2"
+                >
+                  <Image
+                    src="/assets/hotline-panda.png"
+                    alt="Hotline panda"
+                    width={140}
+                    height={82}
+                    className="h-10 lg:h-12 w-auto dark:hidden drop-shadow-lg"
+                  />
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
+            <div className="lg:hidden">
+              <button
+                type="button"
+                className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle mobile menu"
+              >
+                <HiMenu className="h-6 w-6" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50">
+          <button
+            type="button"
+            className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+            onClick={() => setIsMobileMenuOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                setIsMobileMenuOpen(false)
+              }
+            }}
+            aria-label="Close mobile menu overlay"
+            tabIndex={0}
+            style={{ cursor: "pointer" }}
+          />
+          
+          <div className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+            isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          }`}>
+            <div className="flex items-center justify-between p-4 border-b border-gray-200">
+              <Image
+                src="/assets/Logo-Mona.png"
+                alt="MONA.Media logo"
+                width={120}
+                height={20}
+                className="h-6 w-auto dark:hidden"
+              />
+              <button
+                type="button"
+                className="p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <HiX className="h-6 w-6" />
+              </button>
+            </div>
+
+            <div className="py-4">
+              {menuItems.map((item, index) => (
+                <Link
+                  key={item.title}
+                  href={item.href}
+                  className={`${item.color} flex items-center gap-3 px-6 py-4 hover:bg-gray-50 transition-colors border-l-4 border-transparent hover:border-current`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{
+                    animationDelay: `${index * 50}ms`
+                  }}
+                >
+                  <span className="text-2xl">{item.icon}</span>
+                  <span className="text-lg font-medium">{item.title}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  )
+}
